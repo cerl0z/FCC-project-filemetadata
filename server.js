@@ -14,10 +14,10 @@ app.get("/", function (req, res) {
 });
 
 app.post("/api/fileanalyse", upload.single("upfile"), (req, res) => {
-  const { filename, mimetype, size } = req.file;
+  const { originalname, mimetype, size } = req.file;
 
   res.json({
-    name: filename,
+    name: originalname,
     type: mimetype,
     size: size,
   });
